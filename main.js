@@ -3,13 +3,13 @@ const client = new Discord.Client();
 
 client.on("ready", () => {
     console.log(`Logged in as ${client.user.tag}!`);
-})
-    
-client.on("message", message => {
-    if (message.content === "ping") {
-        let reply = "hello";
-        message.reply(reply);
+  })
+  
+  client.on("message", msg => {
+    if (msg.content === "ping") {
+      let reply = "hello again"
+      msg.reply(reply);
     }
-})
-    
-client.login(process.env.TOKEN);
+  })
+  
+  client.login(process.env.TOKEN);
