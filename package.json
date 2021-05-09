@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/RyDe4/ScheduleMaker/issues"
   },
-  "homepage": "https://github.com/RyDe4/ScheduleMaker#readme"
+  "homepage": "https://github.com/RyDe4/ScheduleMaker#readme",
+  "dependencies": {
+    "discord": "^0.8.2"
+  }
 }
