@@ -7,12 +7,10 @@ const PREFIX = "%";
 client.on("ready", () => {
     console.log(`Logged in as ${client.user.tag}!`);
 });
-  
 
+/*
 client.on("message", message => {
-<<<<<<< Updated upstream
     let input = message.content;
-=======
     if (message.author.bot) return;
     if (message.content.startsWith(PREFIX)) {
         InterpretCommand(messageWithout Prefix)
@@ -28,13 +26,16 @@ InterpretCommand(message) {
     if(command == 'y') {
 
     }
+    ...
+    error handling
 }
 
 x();
+y();
+...
 */
 client.on("message", msg => {
     let input = msg.content;
->>>>>>> Stashed changes
     let addInput = new RegExp('^%add');
     
     // stop if the message author is a bot 
