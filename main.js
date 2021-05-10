@@ -21,8 +21,8 @@ client.on("message", message => {
     }
 });
 
-function parseInput (msg, input) {
-    msg.reply(input);
+function parseInput (message, input) {
+    message.reply(input);
 }
 
 client.login(configuration.TOKEN);
