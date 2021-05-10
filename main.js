@@ -8,15 +8,22 @@ client.on("ready", () => {
     console.log(`Logged in as ${client.user.tag}!`);
 });
   
+/*
 client.on("message", message => {
     if (message.author.bot) return;
     if (message.content.startsWith(PREFIX)) {
         message.reply("Hello there");
+        */
+client.on("message", msg => {
+    let input = msg.content;
+    let addInput = new RegExp('^%add');
+    if (addInput.test(input)) {
+        parseInput(msg, input);
     }
 });
 
 function parseInput (msg, input) {
-    msg.reply('hello again');
+    msg.reply(input);
 }
 
 client.login(configuration.TOKEN);
