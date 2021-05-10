@@ -10,7 +10,31 @@ client.on("ready", () => {
   
 
 client.on("message", message => {
+<<<<<<< Updated upstream
     let input = message.content;
+=======
+    if (message.author.bot) return;
+    if (message.content.startsWith(PREFIX)) {
+        InterpretCommand(messageWithout Prefix)
+    }
+
+});
+
+InterpretCommand(message) {
+    let command = message -> get command
+    if(command == 'x') {
+
+    }
+    if(command == 'y') {
+
+    }
+}
+
+x();
+*/
+client.on("message", msg => {
+    let input = msg.content;
+>>>>>>> Stashed changes
     let addInput = new RegExp('^%add');
     
     // stop if the message author is a bot 
