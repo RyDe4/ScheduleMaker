@@ -8,11 +8,11 @@ client.on("ready", () => {
   
 client.on("message", msg => {
     input = msg.content;
-    parseInput(input);
+    parseInput(msg, input);
 });
 
-function parseInput (input) {
-    msg.reply('hello again')
+function parseInput (msg, input) {
+    msg.reply('hello again');
 }
 
 client.login(configuration.TOKEN);
