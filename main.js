@@ -7,12 +7,15 @@ client.on("ready", () => {
 });
   
 client.on("message", msg => {
-    input = msg.content;
-    parseInput(msg, input);
+    let input = msg.content;
+    let addInput = new RegExp('^%add');
+    if (addInput.test(input)) {
+        parseInput(msg, input);
+    }
 });
 
 function parseInput (msg, input) {
-    msg.reply('hello again');
+    msg.reply(input);
 }
 
 client.login(configuration.TOKEN);
