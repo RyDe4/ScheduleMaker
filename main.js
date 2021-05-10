@@ -7,10 +7,12 @@ client.on("ready", () => {
 });
   
 client.on("message", msg => {
-    if (msg.content === "ping") {
-        let reply = "hello again"
-        msg.reply(reply);
-    }
+    input = msg.content;
+    parseInput(input);
 });
+
+function parseInput (input) {
+    msg.reply('hello again')
+}
 
 client.login(configuration.TOKEN);
