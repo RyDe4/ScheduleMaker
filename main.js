@@ -8,17 +8,16 @@ client.on("ready", () => {
     console.log(`Logged in as ${client.user.tag}!`);
 });
   
-/*
+
 client.on("message", message => {
-    if (message.author.bot) return;
-    if (message.content.startsWith(PREFIX)) {
-        message.reply("Hello there");
-        */
-client.on("message", msg => {
-    let input = msg.content;
+    let input = message.content;
     let addInput = new RegExp('^%add');
+    
+    // stop if the message author is a bot 
+    if (message.author.bot) return;
+
     if (addInput.test(input)) {
-        parseInput(msg, input);
+        parseInput(message, input);
     }
 });
 
