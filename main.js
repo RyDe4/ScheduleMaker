@@ -37,17 +37,31 @@ y();
 client.on("message", msg => {
     let input = msg.content;
     let addInput = new RegExp('^%add');
+    let updateInput = new RegExp('^%update');
+    let deleteInput = new RegExp('^%delete');
     
     // stop if the message author is a bot 
     if (message.author.bot) return;
 
     if (addInput.test(input)) {
-        parseInput(message, input);
+        addEvent(message);
+    } else if (updateInput.test(input)) {
+        updateEvent(message);
+    } else if (deleteInput.test(input)) {
+        deleteEvent(message);
     }
 });
 
-function parseInput (message, input) {
-    message.reply(input);
+function addEvent (message) {
+    message.reply(message.content);
+}
+
+function updateEvent (message) {
+    
+}
+
+function deleteEvent (message) {
+
 }
 
 client.login(configuration.TOKEN);
