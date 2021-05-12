@@ -3,37 +3,15 @@ const configuration = require('./configuration');
 const client = new Discord.Client();
 
 const PREFIX = "%";
+const WEEKDAYS = ["Sunday", "Monday", "Tuesday", "Wednesday",
+                "Thursday", "Friday", "Saturday"]
+const MONTHS = ["January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"]
 
 client.on("ready", () => {
     console.log(`Logged in as ${client.user.tag}!`);
 });
 
-/*
-client.on("message", message => {
-    let input = message.content;
-    if (message.author.bot) return;
-    if (message.content.startsWith(PREFIX)) {
-        InterpretCommand(messageWithout Prefix)
-    }
-
-});
-
-InterpretCommand(message) {
-    let command = message -> get command
-    if(command == 'x') {
-
-    }
-    if(command == 'y') {
-
-    }
-    ...
-    error handling
-}
-
-x();
-y();
-...
-*/
 client.on("message", msg => {
     let input = msg.content;
     let addInput = new RegExp('^%add');
@@ -41,27 +19,32 @@ client.on("message", msg => {
     let deleteInput = new RegExp('^%delete');
     
     // stop if the message author is a bot 
-    if (message.author.bot) return;
+    if (msg.author.bot) return;
 
     if (addInput.test(input)) {
-        addEvent(message);
+        addEvent(msg);
     } else if (updateInput.test(input)) {
-        updateEvent(message);
+        updateEvent(msg);
     } else if (deleteInput.test(input)) {
-        deleteEvent(message);
+        deleteEvent(msg);
     }
 });
 
 function addEvent (message) {
-    message.reply(message.content);
+    let terms = message.content.split(" ")
+    if (WEEKDAYS.includes(terms[1])) {
+        message.reply('Event on ' + terms[1])
+    } else if (MONTHS.includes(terms[1])) {
+
+    } 
 }
 
 function updateEvent (message) {
-    
+    message.reply(message.content);
 }
 
 function deleteEvent (message) {
-
+    message.reply(message.content);
 }
 
 client.login(configuration.TOKEN);
